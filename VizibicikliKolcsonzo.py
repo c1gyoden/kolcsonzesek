@@ -19,3 +19,4 @@ for sor in fajl:
     sor = sor.strip().split(';')
     lista.append(Kolcsonzes(sor[0], sor[1], sor[2], sor[3], sor[4], sor[5]))
 
+print(f'5. feladat: Napi kölcsönzések száma: {len(lista)}')
