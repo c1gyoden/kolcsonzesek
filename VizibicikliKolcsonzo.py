@@ -20,3 +20,14 @@ for sor in fajl:
     lista.append(Kolcsonzes(sor[0], sor[1], sor[2], sor[3], sor[4], sor[5]))
 
 print(f'5. feladat: Napi kölcsönzések száma: {len(lista)}')
+
+nevinput = input('6. feladat: Kérek egy nevet: ')
+print('\t', nevinput, 'kölcsönzései:')
+talalhato = False
+for n in lista:
+    if nevinput == n.nev:
+        print(f'\t{n.eora}:{n.eperc}-{n.vora}:{n.vperc}')
+        talalhato = True
+
+if talalhato == False:
+    print('\tNem volt ilyen  nevű kölcsönző!')
