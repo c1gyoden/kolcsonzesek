@@ -22,12 +22,30 @@ for sor in fajl:
 print(f'5. feladat: Napi kölcsönzések száma: {len(lista)}')
 
 nevinput = input('6. feladat: Kérek egy nevet: ')
-print('\t', nevinput, 'kölcsönzései:')
+
 talalhato = False
 for n in lista:
-    if nevinput == n.nev:
-        print(f'\t{n.eora}:{n.eperc}-{n.vora}:{n.vperc}')
-        talalhato = True
+        if nevinput == n.nev:
+            talalhato = True
 
 if talalhato == False:
     print('\tNem volt ilyen  nevű kölcsönző!')
+else:
+    print('\t', nevinput, 'kölcsönzései:')
+    for n in lista:
+        if nevinput == n.nev:
+            if len(n.eora) == 1:
+                eora = ['0', n.eora]
+                n.eora = ''.join(eora)
+            if len(n.eperc) == 1:
+                eperc = ['0', n.eperc]
+                n.eperc = ''.join(eperc)
+            if len(n.vora) == 1:
+                vora = ['0', n.vora]
+                n.vora = ''.join(vora)
+            if len(n.vperc) == 1:
+                vperc = ['0', n.vperc]
+                n.vperc = ''.join(vperc)
+
+            print(f'\t{n.eora}:{n.eperc}-{n.vora}:{n.vperc}')
+
