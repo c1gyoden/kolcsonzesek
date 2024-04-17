@@ -7,3 +7,5 @@ class Kolcsonzes:
         self.vora = vora
         self.vperc = vperc
 
+    def __str__(self):
+        return f'Név: {self.nev}\nAzonosító: {self.jazon}\n'
