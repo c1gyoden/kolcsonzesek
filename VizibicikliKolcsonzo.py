@@ -10,6 +10,11 @@ class Kolcsonzes:
     def __str__(self):
         return f'Név: {self.nev}\nAzonosító: {self.jazon}\n'
     
+def pbe(ido):
+    ido = ido.split(':')
+    perc = 60*int(ido[0]) + int(ido[1])
+    return perc
+    
 lista = []
 
 fajl = open('kolcsonzesek.txt', 'rt', encoding='utf-8')
@@ -49,3 +54,25 @@ else:
 
             print(f'\t{n.eora}:{n.eperc}-{n.vora}:{n.vperc}')
 
+idopont = input("7. feladat: Adjon meg egy időpontot óra:perc alakban: ")
+
+print('\t A vízen lévő járművek:')
+for i in lista:
+    el = [i.eora, i.eperc]
+    vissza = [i.vora, i.vperc]
+    if pbe(idopont) > pbe(':'.join(el)) and pbe(idopont) < pbe(':'.join(vissza)):
+        if len(i.eora) == 1:
+            eora = ['0', i.eora]
+            i.eora = ''.join(eora)
+        if len(i.eperc) == 1:
+            eperc = ['0', i.eperc]
+            i.eperc = ''.join(eperc)
+        if len(n.vora) == 1:
+            vora = ['0', i.vora]
+            i.vora = ''.join(vora)
+        if len(i.vperc) == 1:
+            vperc = ['0', i.vperc]
+            i.vperc = ''.join(vperc)
+        el = [i.eora, i.eperc]
+        vissza = [i.vora, i.vperc]
+        print(f'\t{':'.join(el)}-{':'.join(vissza)} : {i.nev}')
