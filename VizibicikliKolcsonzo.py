@@ -6,3 +6,4 @@ class Kolcsonzes:
         self.eperc = eperc
         self.vora = vora
         self.vperc = vperc
+
